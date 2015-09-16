@@ -1,0 +1,14 @@
+C:\Projects\BaukCMS\BaukCMS.Helpers\obj\Debug\BaukCMS.Helpers.csprojResolveAssemblyReference.cache
+C:\Projects\BaukCMS\BaukCMS.Helpers\bin\Debug\BaukCMS.Helpers.dll
+C:\Projects\BaukCMS\BaukCMS.Helpers\bin\Debug\BaukCMS.Helpers.pdb
+C:\Projects\BaukCMS\BaukCMS.Helpers\bin\Debug\BaukCMS.Models.dll
+C:\Projects\BaukCMS\BaukCMS.Helpers\bin\Debug\BaukCMS.Models.pdb
+C:\Projects\BaukCMS\BaukCMS.Helpers\obj\Debug\BaukCMS.Helpers.dll
+C:\Projects\BaukCMS\BaukCMS.Helpers\obj\Debug\BaukCMS.Helpers.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\obj\Debug\BaukCMS.Helpers.csprojResolveAssemblyReference.cache
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\obj\Debug\BaukCMS.Helpers.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\obj\Debug\BaukCMS.Helpers.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\bin\Debug\BaukCMS.Helpers.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\bin\Debug\BaukCMS.Helpers.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\bin\Debug\BaukCMS.Models.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\bin\Debug\BaukCMS.Models.pdb

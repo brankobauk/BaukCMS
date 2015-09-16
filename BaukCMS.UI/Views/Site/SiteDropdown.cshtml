@@ -1,0 +1,9 @@
+﻿@model BaukCMS.Models.ViewModels.SiteViewModel
+@if (Model != null)
+{
+    using (Html.BeginForm("SetSiteSession", "Site", FormMethod.Post, new { @Class = "sidebar-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.DropDownListFor(x => x.SiteId, Model.Sites, new { @Class = "form-control", onchange = "this.form.submit();" })
+    }
+}

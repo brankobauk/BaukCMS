@@ -1,0 +1,57 @@
+﻿@model BaukCMS.Models.ViewModels.CompanyViewModel
+
+@{
+    ViewBag.Title = "Edit Company";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        Users
+    </header>
+    <div class="panel-body table-responsive">
+
+        @using (Html.BeginForm("Edit", "Company", FormMethod.Post, new { @Class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Company.CompanyId)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Company.Name, new { @class = "col-lg-2 col-sm-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(model => model.Company.Name, new { @class = "form-control", required = "required" })
+                    <div class="error-div">
+                        @Html.ValidationMessageFor(model => model.Company.Name)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label">Sites</label>
+                <div class="col-lg-10">
+                    @for (int i=0;i<Model.CompanySiteConnections.Count;i++)
+                {
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(x => x.CompanySiteConnections[i].Selected)
+                            @Html.HiddenFor(x => x.CompanySiteConnections[i].SiteId)
+                            @Html.LabelFor(x => x.CompanySiteConnections[i].Selected, Model.CompanySiteConnections[i].SiteName)
+                            </div>
+                            }
+                        </div>
+                </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label"></label>
+                <div class="col-lg-10">
+                    <input type="submit" value="Save" class="btn btn-success btn-sm pull-left" />&nbsp;&nbsp;
+                </div>
+            </div>
+            
+        }
+
+        <div>
+            @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-danger btn-sm pull-left" })
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

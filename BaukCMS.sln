@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaukCMS.UI", "BaukCMS.UI\BaukCMS.UI.csproj", "{02B29DDC-5C5C-4CDA-9489-080282871186}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaukCMS.Models", "BaukCMS.Models\BaukCMS.Models.csproj", "{7BED9DCA-53FD-41A2-988C-40D5C3687164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaukCMS.BusinessLogic", "BaukCMS.BusinessLogic\BaukCMS.BusinessLogic.csproj", "{28656CD5-03E0-4ED5-9E4E-272DB30DA701}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaukCMS.DataLayer", "BaukCMS.DataLayer\BaukCMS.DataLayer.csproj", "{02CA68A0-93F9-4ACE-9440-F57EE343CFC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaukCMS.Helpers", "BaukCMS.Helpers\BaukCMS.Helpers.csproj", "{CDC8ED29-EE48-44B4-9BB4-D03FA306F740}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02B29DDC-5C5C-4CDA-9489-080282871186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B29DDC-5C5C-4CDA-9489-080282871186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B29DDC-5C5C-4CDA-9489-080282871186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B29DDC-5C5C-4CDA-9489-080282871186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BED9DCA-53FD-41A2-988C-40D5C3687164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BED9DCA-53FD-41A2-988C-40D5C3687164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BED9DCA-53FD-41A2-988C-40D5C3687164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BED9DCA-53FD-41A2-988C-40D5C3687164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28656CD5-03E0-4ED5-9E4E-272DB30DA701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28656CD5-03E0-4ED5-9E4E-272DB30DA701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28656CD5-03E0-4ED5-9E4E-272DB30DA701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28656CD5-03E0-4ED5-9E4E-272DB30DA701}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02CA68A0-93F9-4ACE-9440-F57EE343CFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02CA68A0-93F9-4ACE-9440-F57EE343CFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02CA68A0-93F9-4ACE-9440-F57EE343CFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02CA68A0-93F9-4ACE-9440-F57EE343CFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC8ED29-EE48-44B4-9BB4-D03FA306F740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC8ED29-EE48-44B4-9BB4-D03FA306F740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC8ED29-EE48-44B4-9BB4-D03FA306F740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC8ED29-EE48-44B4-9BB4-D03FA306F740}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

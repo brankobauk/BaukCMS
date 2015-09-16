@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<h3>We suggest the following:</h3>
+<div class="row" style="margin-bottom: 5px;">
+  
+    <div class="col-lg-12">
+
+        <!--chat start-->
+        <section class="panel">
+            <header class="panel-heading">
+                Notifications
+            </header>
+            <div class="panel-body" id="noti-box">
+                @if(ViewBag.Error != null)
+                { 
+                <div class="alert alert-block alert-danger">
+                    @ViewBag.Error;
+                </div>
+                }
+                <div class="alert alert-success">
+                    <h5>Add NuGet packages and jump-start your coding</h5>
+                    NuGet makes it easy to install and update free libraries and tools.
+                    <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
+                </div>
+                <div class="alert alert-info">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <h5>Find Web Hosting</h5>
+                    You can easily find a web hosting company that offers the right mix of features
+                    and price for your applications.
+                    <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+    

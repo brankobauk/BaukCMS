@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28656CD5-03E0-4ED5-9E4E-272DB30DA701}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BaukCMS.BusinessLogic</RootNamespace>
+    <AssemblyName>BaukCMS.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\AccountHandler.cs" />
+    <Compile Include="Account\AccountManager.cs" />
+    <Compile Include="Companies\CompanyHandler.cs" />
+    <Compile Include="Companies\CompanyManager.cs" />
+    <Compile Include="Errors\ErrorHandler.cs" />
+    <Compile Include="Errors\ErrorManager.cs" />
+    <Compile Include="Filters\SessionFilter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sessions\SessionHandler.cs" />
+    <Compile Include="Sessions\SessionManager.cs" />
+    <Compile Include="Sites\SiteHandler.cs" />
+    <Compile Include="Sites\SiteManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaukCMS.DataLayer\BaukCMS.DataLayer.csproj">
+      <Project>{02ca68a0-93f9-4ace-9440-f57ee343cfc3}</Project>
+      <Name>BaukCMS.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaukCMS.Helpers\BaukCMS.Helpers.csproj">
+      <Project>{cdc8ed29-ee48-44b4-9bb4-d03fa306f740}</Project>
+      <Name>BaukCMS.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaukCMS.Models\BaukCMS.Models.csproj">
+      <Project>{7bed9dca-53fd-41a2-988c-40d5c3687164}</Project>
+      <Name>BaukCMS.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
