@@ -868,6 +868,14 @@ content: '';
   padding: 12px 5px 12px 15px;
   display: block;
 }
+.sidebar .sidebar-menu  ul{
+  padding: 0;
+  margin: 0;
+}
+.sidebar .sidebar-menu  li  li  a{
+  padding: 6px 5px 6px 30px;
+  display: block;
+}
 .sidebar .sidebar-menu > li > a > .fa,
 .sidebar .sidebar-menu > li > a > .glyphicon,
 .sidebar .sidebar-menu > li > a > .ion {
@@ -2964,6 +2972,10 @@ vertical-align: top;
   color: #f6f6f6;
   background: #425164;
 }
+.skin-black .sidebar > .sidebar-menu > li  li.active  a {
+  color: #f6f6f6;
+  background: #425164;
+}
 .skin-black .sidebar > .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
   background: #35404d;
@@ -3209,6 +3221,14 @@ vertical-align: top;
   /*box-shadow: none;*/
   -webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.05);
   box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+}
+
+.login-panel {
+  border:none;
+  /*box-shadow: none;*/
+  -webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+  margin:0% 20%
 }
 
 .panel-heading {

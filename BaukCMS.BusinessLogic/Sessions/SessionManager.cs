@@ -18,7 +18,7 @@ namespace BaukCMS.BusinessLogic.Sessions
             var user = _accountManager.GetUserByName(userName);
             MySession.Current.UserId = user.UserId;
             MySession.Current.SiteId = user.LastSiteId;
-            MySession.Current.CompanyId = user.LastSiteId;
+            MySession.Current.CompanyId = Convert.ToInt32(user.CompanyId);
         }
 
         public void EndSession()

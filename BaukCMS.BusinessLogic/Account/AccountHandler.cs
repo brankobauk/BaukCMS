@@ -89,5 +89,25 @@ namespace BaukCMS.BusinessLogic.Account
         {
             return _accountManager.GetUserProperty(userId);
         }
+
+        public List<UserRole> MapRolesToUser(string[] roles, string[] userRoles)
+        {
+            var checkBoxRoles = new List<UserRole>();
+            foreach(var role in roles)
+            {
+                var checkBoxRole = new UserRole();
+                checkBoxRole.RoleName = role;
+                checkBoxRole.Selected = false;
+                foreach(var userRole in userRoles)
+                {
+                    if(userRole == role)
+                    {
+                        checkBoxRole.Selected = true;
+                    }
+                }
+                checkBoxRoles.Add(checkBoxRole);
+            }
+            return checkBoxRoles;
+        }
     }
 }

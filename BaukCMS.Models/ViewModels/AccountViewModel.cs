@@ -8,5 +8,6 @@ namespace BaukCMS.Models.ViewModels
     {
         public UserProfile UserProfile { get; set; }
         public IEnumerable<SelectListItem> Companies { get; set; }
+        public List<UserRole> UserRole { get; set; }
     }
 }

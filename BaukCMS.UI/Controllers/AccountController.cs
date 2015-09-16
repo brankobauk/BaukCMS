@@ -30,7 +30,11 @@ namespace BaukCMS.UI.Controllers
 
         public ActionResult Edit(int userId)
         {
-            return View(_accountHandler.GetUser(userId));
+            var roles = Roles.GetAllRoles();
+            var accountViewModel = _accountHandler.GetUser(userId);
+            var userRoles = Roles.GetRolesForUser(accountViewModel.UserProfile.UserName);
+                accountViewModel.UserRole = _accountHandler.MapRolesToUser(roles, userRoles);
+                return View(accountViewModel);
         }
 
         [HttpPost]
@@ -39,6 +43,21 @@ namespace BaukCMS.UI.Controllers
             try
             {
                 _accountHandler.EditUser(accountViewModel);
+                var userRoles = accountViewModel.UserRole;
+                accountViewModel = _accountHandler.GetUser(accountViewModel.UserProfile.UserId);
+                foreach (var role in userRoles)
+                {
+                    if(role.Selected)
+                    {
+                        if (!Roles.FindUsersInRole(role.RoleName, accountViewModel.UserProfile.UserName).Contains(accountViewModel.UserProfile.UserName))
+                        Roles.AddUserToRole(accountViewModel.UserProfile.UserName, role.RoleName);
+                    }
+                    else
+                    {
+                        if (Roles.FindUsersInRole(role.RoleName, accountViewModel.UserProfile.UserName).Contains(accountViewModel.UserProfile.UserName))
+                        Roles.RemoveUserFromRole(accountViewModel.UserProfile.UserName, role.RoleName);
+                    }
+                }
                 return RedirectToAction("Index");
             }
             catch

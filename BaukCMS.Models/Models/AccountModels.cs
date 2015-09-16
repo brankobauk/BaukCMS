@@ -94,4 +94,10 @@ namespace BaukCMS.Models.Models
         public string ProviderDisplayName { get; set; }
         public string ProviderUserId { get; set; }
     }
+
+    public class UserRole
+    {
+        public string RoleName { get; set; }
+        public bool Selected { get; set; }
+    }
 }
