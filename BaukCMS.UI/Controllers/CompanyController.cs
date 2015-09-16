@@ -54,7 +54,7 @@ namespace BaukCMS.UI.Controllers
             try
             {
                 _companyHandler.EditCompany(id, companyViewModel);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); 
             }
             catch
             {
