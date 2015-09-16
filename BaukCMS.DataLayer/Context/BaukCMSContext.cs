@@ -7,9 +7,9 @@ namespace BaukCMS.DataLayer.Context
 {
     public class BaukCMSContext : DbContext
     {
-        //public DefibrilatorProjectContext()
+        //public BaukCMSContext()
         //{
-        //    Database.SetInitializer<DefibrilatorProjectContext>(null);
+        //    Database.SetInitializer<BaukCMSContext>(null);
         //}
 
         public DbSet<UserProfile> UserProfiles { get; set; }

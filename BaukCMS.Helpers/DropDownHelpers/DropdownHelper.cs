@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using BaukCMS.Models.Models;
 
-namespace DefibrilatorProject.Helpers.DropDownHelpers
+namespace BaukCMS.Helpers.DropDownHelpers
 {
     public class DropDownHelper
     {

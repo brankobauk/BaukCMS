@@ -9,7 +9,7 @@ namespace BaukCMS.DataLayer.Filters
 {
     public class InitializeDatabaseConnection
     {
-        private readonly BaukCMSContext _defibrilatorProjectContext = new BaukCMSContext();
+        private readonly BaukCMSContext _baukCMSContext = new BaukCMSContext();
 
         public void SimpleMembershipInitializer()
         {
@@ -17,10 +17,10 @@ namespace BaukCMS.DataLayer.Filters
 
             try
             {
-                if (!_defibrilatorProjectContext.Database.Exists())
+                if (!_baukCMSContext.Database.Exists())
                 {
                     // Create the SimpleMembership database without Entity Framework migration schema
-                    ((IObjectContextAdapter)_defibrilatorProjectContext).ObjectContext.CreateDatabase();
+                    ((IObjectContextAdapter)_baukCMSContext).ObjectContext.CreateDatabase();
                     
                 }
 
