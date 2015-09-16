@@ -16,7 +16,7 @@ using BaukCMS.BusinessLogic.Filters;
 
 namespace BaukCMS.UI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [SessionFilter]
     public class SiteController : Controller
     {
