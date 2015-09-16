@@ -9,4 +9,3 @@ C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Models\bin\Debug\BaukCMS.Models.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Models\bin\Debug\BaukCMS.Models.pdb
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Models\obj\Debug\BaukCMS.Models.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Models\obj\Debug\BaukCMS.Models.pdb
-C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Models\obj\Debug\BaukCMS.Models.csprojResolveAssemblyReference.cache
