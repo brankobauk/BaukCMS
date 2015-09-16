@@ -16,7 +16,7 @@ using BaukCMS.BusinessLogic.Filters;
 
 namespace BaukCMS.UI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [SessionFilter]
     public class SiteController : Controller
     {
@@ -150,12 +150,19 @@ namespace BaukCMS.UI.Controllers
             }
         }
 
-        //[Authorize]
+        [AllowAnonymous]
         public PartialViewResult SiteDropdown()
         {
             try
             {
-                return PartialView(_siteHandler.GetSiteViewModel());
+
+                if (MySession.Current.UserId > 0)
+                {
+                    return PartialView(_siteHandler.GetSiteViewModel());
+                }
+                else {
+                    return PartialView(null);
+                }
             }
             catch (Exception ex)
             {
@@ -169,7 +176,7 @@ namespace BaukCMS.UI.Controllers
             }
         }
 
-        //[Authorize]
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult SetSiteSession(SiteViewModel siteViewModel)
         {
