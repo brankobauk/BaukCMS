@@ -7,10 +7,10 @@ namespace BaukCMS.DataLayer.Context
 {
     public class BaukCMSContext : DbContext
     {
-        //public BaukCMSContext()
-        //{
-        //    Database.SetInitializer<BaukCMSContext>(null);
-        //}
+        public BaukCMSContext()
+        {
+            Database.SetInitializer<BaukCMSContext>(null);
+        }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Company> Company { get; set; }
