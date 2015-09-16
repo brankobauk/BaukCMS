@@ -55,7 +55,7 @@ namespace BaukCMS.BusinessLogic.Companies
                     }
                 }
                 companySiteConnection.Selected = selected;
-                companySiteConnections.Add(companySiteConnection);
+                companySiteConnections.Add(companySiteConnection); 
             }
             return companySiteConnections;
         }
