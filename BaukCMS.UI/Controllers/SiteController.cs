@@ -16,8 +16,8 @@ using BaukCMS.BusinessLogic.Filters;
 
 namespace BaukCMS.UI.Controllers
 {
-    [Authorize]
-    [SessionFilter]
+    //[Authorize]
+    //[SessionFilter]
     public class SiteController : Controller
     {
         private readonly SiteHandler _siteHandler = new SiteHandler();
@@ -150,7 +150,7 @@ namespace BaukCMS.UI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         public PartialViewResult SiteDropdown()
         {
             try
@@ -169,7 +169,7 @@ namespace BaukCMS.UI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public ActionResult SetSiteSession(SiteViewModel siteViewModel)
         {

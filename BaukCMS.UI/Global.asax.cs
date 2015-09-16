@@ -28,9 +28,9 @@ namespace BaukCMS.UI
             AuthConfig.RegisterAuth();
         }
 
-        protected void Application_AcquireRequestState(object sender, EventArgs e)
-        {
-            //_sessionHandler.SetSession(2);
-        }
+        //protected void Application_AcquireRequestState(object sender, EventArgs e)
+        //{
+        //    //_sessionHandler.SetSession(2);
+        //}
     }
 }

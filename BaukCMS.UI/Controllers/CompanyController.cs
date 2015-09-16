@@ -9,7 +9,7 @@ using BaukCMS.Models.ViewModels;
 
 namespace BaukCMS.UI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class CompanyController : Controller
     {
         private readonly CompanyHandler _companyHandler = new CompanyHandler();
