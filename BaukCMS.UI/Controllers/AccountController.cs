@@ -16,7 +16,7 @@ using BaukCMS.BusinessLogic.Sessions;
 
 namespace BaukCMS.UI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly AccountHandler _accountHandler = new AccountHandler();
