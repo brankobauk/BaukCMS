@@ -14,7 +14,7 @@ namespace BaukCMS.BusinessLogic.Sessions
         private readonly AccountManager _accountManager = new AccountManager();
         public void SetSession(string userName)
         {
-            if (MySession.Current.UserId > 0) return;
+            if (MySession.Current.UserId > 0 || string.IsNullOrEmpty(userName)) return;
             var user = _accountManager.GetUserByName(userName);
             MySession.Current.UserId = user.UserId;
             MySession.Current.SiteId = user.LastSiteId;
