@@ -1,8 +1,12 @@
-﻿using System;
+﻿using BaukCMS.BusinessLogic.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BaukCMS.Helpers.Session;
+using BaukCMS.Models.Models;
+using BaukCMS.Models.ViewModels;
 
 namespace BaukCMS.UI.Controllers
 {
@@ -10,10 +14,11 @@ namespace BaukCMS.UI.Controllers
     {
         //
         // GET: /Page/
-
+        private readonly PageHandler _pageHandler = new PageHandler();
         public ActionResult Index()
         {
-            return View();
+            var tree = _pageHandler.GetPagesTree(MySession.Current.SiteId);
+            return View(tree);
         }
 
         //
@@ -55,24 +60,25 @@ namespace BaukCMS.UI.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+
+            return PartialView(_pageHandler.GetPageViewModel(id));
         }
 
         //
         // POST: /Page/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public JsonResult Edit(Page page)
         {
             try
             {
-                // TODO: Add update logic here
+                _pageHandler.EditPage(page);
 
-                return RedirectToAction("Index");
+                return Json(_pageHandler.GetPageViewModel(page.PageId));
             }
             catch
             {
-                return View();
+                return Json(_pageHandler.GetPageViewModel(page.PageId));
             }
         }
 
@@ -99,6 +105,19 @@ namespace BaukCMS.UI.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+        [HttpPost]
+        public string EditTree(int? pageId, int parentId, int position, string pageName, string action)
+        {
+            try
+            {
+                return _pageHandler.EditTree(pageId, parentId, position, pageName, action);
+            }
+            catch
+            {
+                return "";
             }
         }
     }

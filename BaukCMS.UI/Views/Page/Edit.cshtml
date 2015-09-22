@@ -1,0 +1,52 @@
+﻿@model BaukCMS.Models.ViewModels.PageViewModel
+
+
+
+@using (Ajax.BeginForm("Edit", "Page", new AjaxOptions { HttpMethod = "POST", OnSuccess = "Success(data)" }, new { @Class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Page.PageId)
+    @Html.HiddenFor(model => model.Page.OrderNumber)
+    @Html.HiddenFor(model => model.Page.ParentId)
+    @Html.HiddenFor(model => model.Page.SiteId)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Page.Name, new { @class = "col-lg-2 col-sm-2 control-label" })
+        <div class="col-lg-10">
+            @Html.TextBoxFor(model => model.Page.Name, new { @class = "form-control", required = "required" })
+            <div class="error-div">
+                @Html.ValidationMessageFor(model => model.Page.Name)
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Page.UrlPath, new { @class = "col-lg-2 col-sm-2 control-label" })
+        <div class="col-lg-10">
+            @Html.TextBoxFor(model => model.Page.UrlPath, new { @class = "form-control", required = "required" })
+            <div class="error-div">
+                @Html.ValidationMessageFor(model => model.Page.UrlPath)
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Page.PageType, new { @class = "col-lg-2 col-sm-2 control-label" })
+        <div class="col-lg-10">
+            @Html.DropDownListFor(model => model.Page.PageTypeId, Model.PageType, new { @Class = "form-control"})
+        </div>
+    </div>
+   
+    <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+    <input type="submit" class="btn btn-success" value="Save"/>
+}
+<script type="text/javascript">
+    function Success(data)
+    {
+        var pageName = JSON.stringify(data.Page.Name);
+        var pageId = JSON.stringify(data.Page.PageId);
+        var elem = $('a[href="#' + pageId + '"]');
+        $("#jstree").jstree('set_text', elem, pageName.replace('"', '').replace('"', ''));
+        $("#page-settings-modal-link-close").trigger("click");
+        $("#jstree").jstree().save_state();
+    }
+</script>
+

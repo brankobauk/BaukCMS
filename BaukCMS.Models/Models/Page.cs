@@ -22,6 +22,9 @@ namespace BaukCMS.Models.Models
         public int ParentId { get; set; }
         public int PageTypeId { get; set; }
         public int OrderNumber { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public bool Active{ get; set; }
         public virtual ICollection<PageContent> PageContent { get; set; }
         public virtual PageType PageType { get; set; }
     }

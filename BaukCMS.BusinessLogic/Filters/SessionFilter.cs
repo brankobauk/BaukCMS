@@ -13,11 +13,11 @@ namespace BaukCMS.BusinessLogic.Filters
 {
     public class SessionFilter : ActionFilterAttribute, IActionFilter
     {
-        private readonly SessionManager _sessionManager = new SessionManager();
+        private readonly SessionHandler _sessionHandler = new SessionHandler();
         void IActionFilter.OnActionExecuting(ActionExecutingContext filterContext)
         {
             var userName = filterContext.HttpContext.User.Identity.Name;
-            _sessionManager.SetSession(userName);
+            _sessionHandler.SetSession(userName);
         }
     }
 }

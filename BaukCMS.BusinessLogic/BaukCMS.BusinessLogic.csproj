@@ -48,6 +48,8 @@
     <Compile Include="Errors\ErrorHandler.cs" />
     <Compile Include="Errors\ErrorManager.cs" />
     <Compile Include="Filters\SessionFilter.cs" />
+    <Compile Include="Pages\PageHandler.cs" />
+    <Compile Include="Pages\PageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sessions\SessionHandler.cs" />
     <Compile Include="Sessions\SessionManager.cs" />

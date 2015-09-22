@@ -1,3 +1,59 @@
 ﻿@model BaukCMS.Models.Models.LocalPasswordModel
-@Html.Partial("_ChangePasswordPartial")
 
+<section class="panel">
+    <header class="panel-heading">
+        Change Password
+    </header>
+    <div class="panel-body table-responsive">
+
+        @using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { @Class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-block alert-danger">
+                    @Html.ValidationSummary(true)
+                </div>
+            }
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.OldPassword, new { @class = "col-lg-2 col-sm-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.PasswordFor(m => m.OldPassword, new { @class = "form-control m-b-10" })
+                    <div class="error-div">
+                        @Html.ValidationMessageFor(m => m.OldPassword)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.NewPassword, new { @class = "col-lg-2 col-sm-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.PasswordFor(m => m.NewPassword, new { @class = "form-control m-b-10" })
+                    <div class="error-div">
+                        @Html.ValidationMessageFor(m => m.NewPassword)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-lg-2 col-sm-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control m-b-10" })
+                    <div class="error-div">
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label"></label>
+                <div class="col-lg-10">
+                    <input type="submit" value="Save" class="btn btn-success btn-sm pull-left" />&nbsp;&nbsp;
+                </div>
+            </div>
+
+        }
+
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

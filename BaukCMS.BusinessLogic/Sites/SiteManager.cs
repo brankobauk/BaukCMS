@@ -34,6 +34,11 @@ namespace BaukCMS.BusinessLogic.Sites
         public Site GetSite(int siteId)
         {
             return _siteRepository.GetSite(siteId);
-        }   
+        }
+
+        public int GetDefaultSiteId(int? companyId)
+        {
+            return _siteRepository.GetDefaultSiteId(companyId);
+        }
     }
 }

@@ -79,5 +79,6 @@ namespace BaukCMS.BusinessLogic.Account
         {
             return _accountRepository.GetUserByName(userName);
         }
+
     }
 }

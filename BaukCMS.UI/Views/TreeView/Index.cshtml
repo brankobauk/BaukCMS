@@ -1,0 +1,43 @@
+@using BaukCMS.UI.Helpers
+@model List<BaukCMS.UI.Controllers.TreeViewLocation>
+
+<h2>TreeView</h2>
+
+<div id="jstree">
+    @(Html.TreeView(Model)
+    .EmptyContent("No locations have been defined yet!")
+    .Children(m => m.ChildLocations)
+    .HtmlAttributes(new { id = "tree" })
+    .ChildrenHtmlAttributes(new { @class = "subItem" })
+    .ItemText(m => m.Name)
+    .ItemTemplate(
+    @<text>
+        <a href="#@item.Id">@item.Name</a>
+    </text>)
+    )
+    </div>
+    <script src="~/Scripts/jsTree3/jstree.min.js"></script>
+    <script>
+        $(function () {
+            // 6 create an instance when the DOM is ready
+            $('#jstree').jstree({
+                "core": {
+                    "animation": 0,
+                    "check_callback": true,
+                    "open_parents": true
+                },
+                "plugins": [
+                  "contextmenu", "dnd", "search",
+                  "state", "types", "wholerow"
+                ]
+
+            });
+            $("#jstree").bind("open_node.jstree", function (e, data) {
+
+                $(data.rslt.obj).find('li').each(function (i) {
+                    data.inst.open_node($(this));
+                });
+
+            });
+        });
+    </script>

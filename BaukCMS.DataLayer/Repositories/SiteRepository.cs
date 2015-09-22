@@ -42,5 +42,17 @@ namespace BaukCMS.DataLayer.Repositories
         {
             return _db.Site.FirstOrDefault(p => p.SiteId == siteId);
         }
+
+        public int GetDefaultSiteId(int? companyId)
+        {
+            if (companyId != null)
+            {
+                return _db.CompanySite.FirstOrDefault(p => p.CompanyId == companyId).SiteId;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }

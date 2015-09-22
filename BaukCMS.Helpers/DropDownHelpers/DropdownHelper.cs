@@ -17,5 +17,11 @@ namespace BaukCMS.Helpers.DropDownHelpers
         {
             return sites.Select(site => new SelectListItem { Value = site.SiteId.ToString(CultureInfo.InvariantCulture), Text = site.Name.ToString(CultureInfo.InvariantCulture) }).ToList();
         }
+
+        public IEnumerable<SelectListItem> GetPageTypeListForDropDown(List<PageType> pageTypes)
+        {
+            return pageTypes.Select(pageType => new SelectListItem { Value = pageType.PageTypeId.ToString(CultureInfo.InvariantCulture), Text = pageType.Name.ToString(CultureInfo.InvariantCulture) }).ToList();
+       
+        }
     }
 }
