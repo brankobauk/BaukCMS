@@ -44,9 +44,10 @@
         var pageName = JSON.stringify(data.Page.Name);
         var pageId = JSON.stringify(data.Page.PageId);
         var elem = $('a[href="#' + pageId + '"]');
+        var id = elem.attr("id");
         $("#jstree").jstree('set_text', elem, pageName.replace('"', '').replace('"', ''));
+        $("#" + id).attr("href", "#" + pageId);
         $("#page-settings-modal-link-close").trigger("click");
-        $("#jstree").jstree().save_state();
     }
 </script>
 
