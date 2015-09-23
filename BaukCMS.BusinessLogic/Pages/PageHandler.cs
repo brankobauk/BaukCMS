@@ -72,6 +72,13 @@ namespace BaukCMS.BusinessLogic.Pages
             else 
             {
                 _pageManager.DeletePage(pageId);
+                var pagesToOrder = GetPages(MySession.Current.SiteId).Where(p => p.ParentId == parentId && p.PageId != pageId).OrderBy(p => p.OrderNumber).ToList();
+                var i = 1;
+                foreach (var p in pagesToOrder)
+                {
+                    p.OrderNumber = i++;
+                    EditPage(p);
+                }
                 return "";
             }
             

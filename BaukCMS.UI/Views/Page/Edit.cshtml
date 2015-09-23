@@ -48,6 +48,7 @@
         $("#jstree").jstree('set_text', elem, pageName.replace('"', '').replace('"', ''));
         $("#" + id).attr("href", "#" + pageId);
         $("#page-settings-modal-link-close").trigger("click");
+        $("#jstree").jstree().save_state();
     }
 </script>
 
