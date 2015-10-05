@@ -22,6 +22,7 @@ namespace BaukCMS.BusinessLogic.Sessions
             {
                 user.LastSiteId = _siteManager.GetDefaultSiteId(user.CompanyId);
             }
+
             _sessionManager.SetSession(user); 
         }
 

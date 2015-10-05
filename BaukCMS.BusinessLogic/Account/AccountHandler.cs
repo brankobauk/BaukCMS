@@ -51,6 +51,11 @@ namespace BaukCMS.BusinessLogic.Account
             };
         }
 
+        public UserProfile GetUserByName(string userName)
+        {
+            return _accountManager.GetUserByName(userName);
+        }
+
         public void EditUser(AccountViewModel accountViewModel)
         {
             _accountManager.EditUser(accountViewModel);

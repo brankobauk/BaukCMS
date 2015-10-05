@@ -120,5 +120,21 @@ namespace BaukCMS.UI.Controllers
                 return "";
             }
         }
+
+        public ActionResult GetContents(int pageId)
+        {
+            var pageContent = _pageHandler.GetPageContents(pageId);
+            return PartialView(pageContent);
+        }
+
+        public void MovePageContent(int pageId, int pageContentId, int yPlaceId, int xPlaceId, int orderNumber)
+        {
+            _pageHandler.MovePageContent(pageId, pageContentId, yPlaceId, xPlaceId, orderNumber);
+        }
+
+        public void DeletePageContent(int pageId, int pageContentId, int yPlaceId, int xPlaceId)
+        {
+            _pageHandler.DeletePageContent(pageId, pageContentId, yPlaceId, xPlaceId);
+        }
     }
 }

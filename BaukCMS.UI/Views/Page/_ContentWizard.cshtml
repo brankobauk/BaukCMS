@@ -1,0 +1,84 @@
+﻿<div class="modal fade in" id="page-contentwizard-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="page-contentwizard-modal-link-close">×</button>
+                <h4 class="modal-title">Page Settings </h4>
+            </div>
+            <div class="modal-body" id="page-contentwizard-modal-body">
+
+                <section class="panel general">
+                    <header class="panel-heading tab-bg-dark-navy-blue">
+                        <ul class="nav nav-tabs">
+                            <li class="active" id="ChooseContentLi">
+                                <a data-toggle="tab" href="#ChooseContent">Choose Content</a>
+                            </li>
+                            <li class="" id="ChooseContentTemplateLi">
+                                <a data-toggle="tab" href="#ChooseContentTemplate">Choose Content Template</a>
+                            </li>
+                            <li class="" id="ContentFormLi">
+                                <a data-toggle="tab" href="#ContentForm">Content Form</a>
+                            </li>
+                        </ul>
+                    </header>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div id="ChooseContent" class="tab-pane active">
+                                <select id="ddChooseContent" class="form-control m-b-10">
+                                    <option value="0">--- Choose ---</option>
+                                    <option value="1">New Content</option>
+                                    <option value="2">Existing Content</option>
+                                </select>
+                                <div id="ExsistingContents"></div>
+                            </div>
+                            <div id="ChooseContentTemplate" class="tab-pane"></div>
+                            <div id="ContentForm" class="tab-pane"></div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<a class="btn btn-danger" data-toggle="modal" href="#page-contentwizard-modal" id="page-contentwizard-modal-link" style="display:none;"></a>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ChooseContentTemplateLi a, #ContentFormLi a').click(function (e) {
+            if ($('#ChooseContent option:selected').val() != 1)
+            {
+                return false;
+                $(".nav-tabs li").each(function () {
+                    $(this).removeClass("active");
+                });
+                $("#ChooseContentLi").addClass("active");
+            }
+        });
+        $("#ChooseContent").change(function () {
+            if ($('#ChooseContent option:selected').val() == 1) {
+                $("#ExsistingContents").hide();
+                $("#ChooseContentTemplateLi a").trigger("click");
+                ajaxCall("", "/content/contenttemplates", "POST").done(function (returnText) {
+                    if (returnText != "")
+                    {
+                        $("#ChooseContentTemplate").html(returnText);
+                    }
+                    else
+                    {
+                        $("#error-modal-body").text(returnText);
+                        $("#error-modal-link").trigger("click");
+                    }
+                });
+            }
+            else
+            {
+                $("#ExsistingContents").show();
+                if ($("#ExsistingContents").html() == "")
+                {
+
+                }
+            }
+        });
+    });
+</script>

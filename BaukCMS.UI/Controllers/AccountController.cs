@@ -105,7 +105,13 @@ namespace BaukCMS.UI.Controllers
             _sessionHandler.EndSession();
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+                if (_accountHandler.GetUser(WebSecurity.GetUserId(model.UserName)).UserProfile.Active)
+                {
+                    _sessionHandler.SetSession(model.UserName);
+                    return RedirectToLocal(returnUrl);
+                }
+                WebSecurity.Logout();
+                _sessionHandler.EndSession();
             }
 
             // If we got this far, something failed, redisplay form

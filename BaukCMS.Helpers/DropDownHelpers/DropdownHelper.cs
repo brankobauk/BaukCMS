@@ -23,5 +23,20 @@ namespace BaukCMS.Helpers.DropDownHelpers
             return pageTypes.Select(pageType => new SelectListItem { Value = pageType.PageTypeId.ToString(CultureInfo.InvariantCulture), Text = pageType.Name.ToString(CultureInfo.InvariantCulture) }).ToList();
        
         }
+
+        public IEnumerable<SelectListItem> GetContentTemplateListForDropDown(List<ContentTemplate> contentTemplates)
+        {
+            var items = new List<SelectListItem>();
+            var item = new SelectListItem()
+            {
+                Value = "0",
+                Text = "--- Choose ---",
+                Selected = true
+            };
+            items.Add(item);
+            items.AddRange(contentTemplates.Select(contentTemplate => new SelectListItem { Value = contentTemplate.ContentTemplateId.ToString(CultureInfo.InvariantCulture), Text = contentTemplate.ContentTemplateName.ToString(CultureInfo.InvariantCulture) }).ToList());
+            return items;
+
+        }
     }
 }

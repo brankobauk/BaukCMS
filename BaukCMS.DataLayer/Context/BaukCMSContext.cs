@@ -26,6 +26,12 @@ namespace BaukCMS.DataLayer.Context
         public DbSet<Form> Form { get; set; }
         public DbSet<Error> Error { get; set; }
         public DbSet<CompanySite> CompanySite { get; set; }
+        public DbSet<ContentTemplate> ContentTemplate { get; set; }
+        public DbSet<ContentInputType> ContentInputType { get; set; }
+        public DbSet<ContentInputTypeItem> ContentInputTypeItem { get; set; }
+        public DbSet<ContentItem> ContentItem { get; set; }
+        public DbSet<ContentItemValue> ContentItemValue { get; set; }
+        public DbSet<ContentInputTypeValue> ContentInputTypeValue { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<BaukCMSContext>(null);

@@ -56,7 +56,43 @@ namespace BaukCMS.DataLayer.Repositories
 
         public List<PageType> GetPageTypes()
         {
-            return _db.PageType.ToList();
+            return _db.PageType.AsNoTracking().ToList();
+        }
+
+        public List<PageContent> GetPageContents(int pageId)
+        {
+            return _db.PageContent.Where(p => p.PageId == pageId).OrderBy(p => p.OrderNumber).ToList();
+        }
+
+        public PageContent GetPageContent(int pageContentId)
+        {
+            return _db.PageContent.FirstOrDefault(p => p.PageContentId == pageContentId);
+        }
+
+        public List<ContentItemValue> GetContentItemValue(int contentId)
+        {
+            return _db.ContentItemValue.Where(p => p.ContentId == contentId).ToList();
+        }
+
+        public List<Content> GetContents(int pageId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditPageContent(PageContent pageContent)
+        {
+            var pageContentToEdit = GetPageContent(pageContent.PageContentId);
+            pageContentToEdit.OrderNumber = pageContent.OrderNumber;
+            pageContentToEdit.YPlaceId = pageContent.YPlaceId;
+            pageContentToEdit.XPlaceId = pageContent.XPlaceId;
+            _db.SaveChanges();
+        }
+
+        public void DeletePageContent(int pageContentId)
+        {
+            var pageContentToEdit = GetPageContent(pageContentId);
+            _db.PageContent.Remove(pageContentToEdit);
+            _db.SaveChanges();
         }
     }
 }

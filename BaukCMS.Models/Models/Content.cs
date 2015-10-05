@@ -15,9 +15,8 @@ namespace BaukCMS.Models.Models
         }
         [Key]
         public int ContentId { get; set; }
+        public string ContentName { get; set; }
         public int SiteId { get; set; }
-        public string Name { get; set; }
-        public string Text { get; set; }
         public virtual Site Site { get; set; }
         public virtual ICollection<PageContent> PageContent { get; set; }
     }

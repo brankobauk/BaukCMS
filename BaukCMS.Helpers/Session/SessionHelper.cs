@@ -34,6 +34,7 @@ namespace BaukCMS.Helpers.Session
         {
             HttpContext.Current.Session["__MySession__"] = null;
         }
+
         // **** add your session properties here, e.g like this:
         
         public int SiteId { get; set; }

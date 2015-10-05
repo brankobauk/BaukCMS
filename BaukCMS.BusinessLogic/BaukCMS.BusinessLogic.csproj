@@ -39,12 +39,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountHandler.cs" />
     <Compile Include="Account\AccountManager.cs" />
     <Compile Include="Companies\CompanyHandler.cs" />
     <Compile Include="Companies\CompanyManager.cs" />
+    <Compile Include="Contents\ContentHandler.cs" />
+    <Compile Include="Contents\ContentManager.cs" />
     <Compile Include="Errors\ErrorHandler.cs" />
     <Compile Include="Errors\ErrorManager.cs" />
     <Compile Include="Filters\SessionFilter.cs" />

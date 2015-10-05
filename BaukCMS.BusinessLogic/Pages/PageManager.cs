@@ -40,5 +40,25 @@ namespace BaukCMS.BusinessLogic.Pages
         {
             return _pageRepository.GetPageTypes();
         }
+
+        public List<PageContent> GetPageContents(int pageId)
+        {
+            return _pageRepository.GetPageContents(pageId);
+        }
+
+        public List<ContentItemValue> GetContentItemValue(int contentId)
+        {
+            return _pageRepository.GetContentItemValue(contentId);
+        }
+
+        public void EditPageContent(PageContent pageContent)
+        {
+            _pageRepository.EditPageContent(pageContent);
+        }
+
+        public void DeletePageContent(int pageContentId)
+        {
+            _pageRepository.DeletePageContent(pageContentId);
+        }
     }
 }

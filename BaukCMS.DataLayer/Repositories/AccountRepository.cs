@@ -96,7 +96,7 @@ namespace BaukCMS.DataLayer.Repositories
 
         public UserProfile GetUserByName(string userName)
         {
-            return _db.UserProfiles.FirstOrDefault(p => p.UserName == userName);
+            return _db.UserProfiles.AsNoTracking().FirstOrDefault(p => p.UserName == userName);
         }
     }
 }

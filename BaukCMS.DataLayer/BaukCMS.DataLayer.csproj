@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\BaukCMSContext.cs" />
+    <Compile Include="Repositories\ContentRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Filters\InitializeDatabaseConnection.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />

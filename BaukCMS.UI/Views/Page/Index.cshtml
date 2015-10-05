@@ -32,13 +32,14 @@
                     <header class="panel-heading">
                         Contents
                     </header>
-                    <div class="panel-body table-responsive">
+                    <div class="panel-body table-responsive" id="content-wrapper">
                        ssdfsdf
                     </div>
                 </section></div>
     </div>
 @Html.Partial("_PageModalError")
 @Html.Partial("_PageSettings")
+@Html.Partial("_ContentWizard")
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -46,7 +47,7 @@
 <script src="~/Scripts/jsTree3/jstree.min.js"></script>
 <script>
     var tmp = { pageId: null, parentId : null, pos: null, pageName: null };
-    $(function () {
+    $(document).ready(function () {
         
         // 6 create an instance when the DOM is ready
         $('#jstree').jstree({
@@ -161,7 +162,7 @@
                 {
                     pageId = pageId.replace("#", "");
                 }
-                
+                GetContents(pageId);
             }
         }).on('rename_node.jstree', function (e, data) {
             if (tmp.pageId != "") {
@@ -190,6 +191,7 @@
         }).on('ready.jstree', function (e, data) {
             data.instance.open_all();
         });
+
     });
 
     function ajaxCall(qString, url, method)
@@ -231,5 +233,18 @@
         }
         tmp.position = position;
         tmp.pageName = $("#" + node.id).children("a").text();
+    }
+    function GetContents(pageId)
+    {
+        var qString = { pageId: pageId };
+        ajaxCall(qString, "/page/getcontents", "GET").done(function (returnText) {
+            if (returnText != "") {
+                $("#content-wrapper").html(returnText);
+            }
+            else {
+                $("#error-modal-body").html(returnText);
+                $("#error-modal-link").trigger("click");
+            }
+        });
     }
 </script>

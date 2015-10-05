@@ -1,0 +1,103 @@
+﻿@model BaukCMS.Models.ViewModels.PageContentViewModel
+<div class="table-border">
+    <table class="content-main-table" style="width:100%">
+        <tr>
+            <td>
+                <table id="yPlaceId-1" class="place-items">
+                    <tr>
+                        <td>
+                            <ul class="connected sortable" id="YplaceId-1-XPlaceId-1">
+                                @foreach (var item in Model.Page.PageContent.Where(p => p.YPlaceId == 1))
+                                {
+                                    <li class="ui-state-default" id="@item.PageContentId">
+                                        @Model.Content.FirstOrDefault(p => p.ContentId == item.ContentId).ContentName
+                                        <div class="edit"><a href="#" class="btn btn-default btn-xs" id="edit-@item.PageContentId"><i class="fa fa-pencil"></i></a></div>
+                                        <div class="delete"><a href="#" class="btn btn-default btn-xs" id="delete-@item.PageContentId"><i class="fa fa-times"></i></a></div>
+                                    </li>
+                                }
+                            </ul>
+                            <a class="btn btn-success btn-sm pull-right addContent" href="#">Add Content</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="place-items" id="yPlaceId-2">
+                    <tr>
+                        @{
+                            var columns = Model.Page.PageType.Matrix.Split(',').Reverse().ToList<string>();
+                            var j = 1;
+                            for (var i = 1; i <= columns.Count(); i++)
+                            {
+                                var width = 25 * Convert.ToInt32(columns[i - 1]);
+                                <td width="@width%">
+                                    <ul class="connected sortable" id="YplaceId-2-XPlaceId-@j">
+                                        @foreach (var item in Model.Page.PageContent.Where(p => p.YPlaceId == 2 && p.XPlaceId == j))
+                                        {
+                                            <li class="ui-state-default" id="@item.PageContentId">
+                                                @Model.Content.FirstOrDefault(p => p.ContentId == item.ContentId).ContentName<br />
+                                                <div class="edit"><a href="#" class="btn btn-default btn-xs" id="edit-@item.PageContentId"><i class="fa fa-pencil"></i></a></div>
+                                                <div class="delete"><a href="#" class="btn btn-default btn-xs" id="delete-@item.PageContentId"><i class="fa fa-times"></i></a></div>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <a class="btn btn-success btn-sm pull-right addContent" href="#">Add Content</a>
+                                </td>
+                                        j++;
+                            }
+                        }
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table id="yPlaceId-3" class="place-items">
+                    <tr>
+                        <td>
+                            <ul class="connected sortable" id="YplaceId-3-XPlaceId-1">
+                                @foreach (var item in Model.Page.PageContent.Where(p => p.YPlaceId == 3))
+                                {
+                                    <li class="ui-state-default" id="@item.PageContentId">
+                                        @Model.Content.FirstOrDefault(p => p.ContentId == item.ContentId).ContentName
+                                        <div class="edit"><a href="#" class="btn btn-default btn-xs" id="edit-@item.PageContentId"><i class="fa fa-pencil"></i></a></div>
+                                        <div class="delete"><a href="#" class="btn btn-default btn-xs" id="delete-@item.PageContentId"><i class="fa fa-times"></i></a></div>
+                                    </li>
+
+                                }
+
+                            </ul>
+                            <a class="btn btn-success btn-sm pull-right addContent" href="#">Add Content</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    $(document).ready(function(){
+        $(".sortable").sortable({
+            connectWith: ".connected",
+            stop: function (event, ui) {
+                var yPlaceId = ui.item.closest('table').attr('id').substring(ui.item.closest('table').attr('id').lastIndexOf('-')).replace("-", "");
+                var xPlaceId = ui.item.closest('ul').attr('id').substring(ui.item.closest('ul').attr('id').lastIndexOf('-')).replace("-", "");
+                var qString = { PageId: "@Model.Page.PageId", PageContentId: ui.item[0].id, YPlaceId: yPlaceId, XPlaceId: xPlaceId, OrderNumber: ui.item.index()}
+                ajaxCall(qString, "/page/movepagecontent", "POST");
+            }
+        }).disableSelection();
+        $(".edit a").click(function () {
+        });
+        $(".delete a").click(function () {
+            var yPlaceId = $(this).closest('table').attr('id').substring($(this).closest('table').attr('id').lastIndexOf('-')).replace("-", "");
+            var xPlaceId = $(this).closest('ul').attr('id').substring($(this).closest('ul').attr('id').lastIndexOf('-')).replace("-", "");
+            var qString = { PageId: "@Model.Page.PageId", PageContentId: $(this).attr('id').substring($(this).attr('id').lastIndexOf('-')).replace("-", ""), YPlaceId: yPlaceId, XPlaceId: xPlaceId }
+            ajaxCall(qString, "/page/deletepagecontent", "POST");
+            $(this).closest('li').remove();
+        });
+        $(".addContent").click(function () {
+            $("#page-contentwizard-modal-link").trigger("click");
+        });
+    });
+</script>

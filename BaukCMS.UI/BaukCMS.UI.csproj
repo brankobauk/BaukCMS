@@ -191,6 +191,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\jsTree3Controller.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -875,6 +876,7 @@
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
     <Content Include="Scripts\gridmvc.min.js" />
+    <None Include="Properties\PublishProfiles\SmartASP.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -953,6 +955,11 @@
     <Content Include="Views\TreeView\Index.cshtml" />
     <Content Include="Views\Page\_PageModalError.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
+    <Content Include="Views\Page\_PageContents.cshtml" />
+    <Content Include="Views\Page\GetContents.cshtml" />
+    <Content Include="Views\Content\ContentForm.cshtml" />
+    <Content Include="Views\Page\_ContentWizard.cshtml" />
+    <Content Include="Views\Content\ContentTemplates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

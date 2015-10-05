@@ -1,0 +1,20 @@
+﻿@model BaukCMS.Models.ViewModels.ContentTemplateViewModel
+
+@Html.DropDownListFor(x => x.ContentTemplateId, Model.ContentTemplates, new { @class = "form-control m-b-10" })
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ContentTemplateId").change(function () {
+            alert("asf");
+            qString = { ContentTemplateId: $("#ChooseContentTemplate select option:selected").val() }
+            ajaxCall(qString, "/content/contentform", "POST").done(function (returnText) {
+                if (returnText != "") {
+                    $("#ContentForm").html(returnText);
+                }
+                else {
+                    $("#error-modal-body").text(returnText);
+                    $("#error-modal-link").trigger("click");
+                }
+            });
+        });
+    });
+</script>
