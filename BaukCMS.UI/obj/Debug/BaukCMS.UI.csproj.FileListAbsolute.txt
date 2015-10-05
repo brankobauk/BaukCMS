@@ -112,12 +112,9 @@ C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\Microsoft.Web.Infrastructure.
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\Microsoft.Web.WebPages.OAuth.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\Newtonsoft.Json.dll
-C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Net.Http.Formatting.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Spatial.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Helpers.dll
-C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Http.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Http.OData.dll
-C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Http.WebHost.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Mvc.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Optimization.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Razor.dll
@@ -133,10 +130,7 @@ C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\BaukCMS.Helpers.pdb
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\BaukCMS.Models.pdb
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\EntityFramework.xml
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\Newtonsoft.Json.xml
-C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Net.Http.Formatting.xml
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Helpers.xml
-C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Http.xml
-C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Http.WebHost.xml
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Mvc.xml
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.Razor.xml
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.UI\bin\System.Web.WebPages.xml

@@ -24,3 +24,5 @@ C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\BaukCMS.Models.p
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.xml
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\System.Web.Mvc.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\System.Web.Mvc.xml
