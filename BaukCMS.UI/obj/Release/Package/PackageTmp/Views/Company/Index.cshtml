@@ -1,0 +1,34 @@
+﻿@using GridMvc.Html
+@model IEnumerable<BaukCMS.Models.Models.Company>
+
+@{
+    ViewBag.Title = "Index Of Companies";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        Companies
+    </header>
+    <div class="panel-body table-responsive">
+        @if (Model != null)
+        {
+            @Html.Grid(Model).Columns(columns =>
+                    {
+                        columns.Add(c => c.Name).Titled("Name").Filterable(true);
+                        columns.Add().Sanitized(false).Encoded(false).SetWidth(10).RenderValueAs(o => "<a href='" + @Url.Action("Edit", "Company", new { Id = o.CompanyId }) + "' class='btn btn-default btn-xs'><i class='fa fa-pencil'></i></a>");
+                        columns.Add().Sanitized(false).Encoded(false).SetWidth(10).RenderValueAs(o => "<a href='" + @Url.Action("Delete", "Company", new { Id = o.CompanyId }) + "' class='btn btn-default btn-xs'><i class='fa fa-times'></i></a>");
+                    }).WithPaging(10).Sortable(true);
+
+        }
+        else
+        {
+            <div>No Items To Display!</div>
+        }
+        <div class=" add-task-row">
+            @Html.ActionLink("Create New Company", "Create", null, new { @class = "btn btn-success btn-sm pull-left" })
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/table")
+}

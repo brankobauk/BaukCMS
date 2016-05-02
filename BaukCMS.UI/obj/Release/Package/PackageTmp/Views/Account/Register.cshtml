@@ -1,0 +1,59 @@
+﻿@model BaukCMS.Models.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        Add New User
+    </header>
+<div class="panel-body table-responsive">
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new {@Class = "form-horizontal"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new {@class = "col-lg-2 col-sm-2 control-label"})
+            <div class="col-lg-10">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", required = "required" })
+                <div class="error-div">
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new {@class = "col-lg-2 col-sm-2 control-label"})
+            <div class="col-lg-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required" })
+                <div class="error-div">
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new {@class = "col-lg-2 col-sm-2 control-label"})
+            <div class="col-lg-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", required = "required" })
+                <div class="error-div">
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 col-sm-2 control-label"></label>
+            <div class="col-lg-10">
+                <input type="submit" value="Add User" class="btn btn-success btn-sm pull-left"/>&nbsp;&nbsp;
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back To List", "Index", null, new {@class = "btn btn-danger btn-sm pull-left"})
+    </div>
+</div>
+    </section>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

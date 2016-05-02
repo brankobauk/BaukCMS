@@ -1,0 +1,76 @@
+﻿@model BaukCMS.Models.ViewModels.AccountViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        Users
+    </header>
+    <div class="panel-body table-responsive">
+
+        @using (Html.BeginForm("Edit", "Account", FormMethod.Post, new {@Class = "form-horizontal"}))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.UserProfile.UserId)
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserProfile.UserName, new {@class = "col-lg-2 col-sm-2 control-label"})
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(model => model.UserProfile.UserName, new {disabled = "disabled", @readonly = "readonly", @class = "form-control"})
+                    <div class="error-div">
+                        @Html.ValidationMessageFor(model => model.UserProfile.UserName)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserProfile.FirstName, new {@class = "col-lg-2 col-sm-2 control-label"})
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(model => model.UserProfile.FirstName, new {@class = "form-control"})
+                </div>
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserProfile.LastName, new {@class = "col-lg-2 col-sm-2 control-label"})
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(model => model.UserProfile.LastName, new {@class = "form-control"})
+                </div>
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserProfile.Company, new {@class = "col-lg-2 col-sm-2 control-label"})
+                <div class="col-lg-10">
+                    @Html.DropDownListFor(x => x.UserProfile.CompanyId, Model.Companies, new {@class = "form-control m-b-10"})
+                </div>
+            </div>
+    <div class="form-group">
+        <label class="col-lg-2 col-sm-2 control-label">Roles</label>
+        <div class="col-lg-10">
+            @for (int i = 0; i < Model.UserRole.Count; i++)
+            {
+                <div class="checkbox">
+                    @Html.CheckBoxFor(x => x.UserRole[i].Selected)
+                    @Html.HiddenFor(x => x.UserRole[i].RoleName)
+                    @Html.LabelFor(x => x.UserRole[i].Selected, Model.UserRole[i].RoleName)
+                </div>
+            }
+        </div>
+    </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label"></label>
+                <div class="col-lg-10">
+                    <input type="submit" value="Save" class="btn btn-success btn-sm pull-left"/>&nbsp;&nbsp;
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back To List", "Index", null, new {@class = "btn btn-danger btn-sm pull-left"})
+        </div>
+    </div>
+</section>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

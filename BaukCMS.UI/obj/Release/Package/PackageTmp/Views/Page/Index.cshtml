@@ -1,0 +1,235 @@
+﻿@using BaukCMS.Helpers.Tree
+@model IEnumerable<BaukCMS.Models.ViewModels.TreeViewModel>
+
+
+
+
+<div id="row">
+
+    <div class="col-md-3">
+        <section class="panel">
+            <header class="panel-heading">
+                Pages
+            </header>
+            <div class="panel-body table-responsive">
+                <div id="jstree">
+                    @(Html.TreeView(Model)
+    .Children(m => m.Childs)
+    .HtmlAttributes(new { id = "tree" })
+    .ChildrenHtmlAttributes(new { @class = "subItem" })
+    .ItemText(m => m.Name)
+    .ItemTemplate(
+    @<text>
+        <a href="#@item.Id">@item.Name</a>
+    </text>)
+                    )
+                </div>
+            </div>
+            </section>
+            </div>
+            <div class="col-md-9">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Contents
+                    </header>
+                    <div class="panel-body table-responsive">
+                       ssdfsdf
+                    </div>
+                </section></div>
+    </div>
+@Html.Partial("_PageModalError")
+@Html.Partial("_PageSettings")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="~/Scripts/jsTree3/jstree.min.js"></script>
+<script>
+    var tmp = { pageId: null, parentId : null, pos: null, pageName: null };
+    $(function () {
+        
+        // 6 create an instance when the DOM is ready
+        $('#jstree').jstree({
+            "core": {
+                "animation": 0,
+                "check_callback": function (operation, node, parent, position, more) {
+                    if (operation === "select_node" || operation === "create_node" || operation === "copy_node" || operation === "move_node" || operation === "rename_node" || operation === "delete_node") {
+                        fillTmp(node, parent, position)
+                        if (parent.id === "#" && operation === "move_node") {
+                            return false;
+                        }
+                        if (operation === "delete_node") {
+                            var error;
+                            var qString = { PageId: tmp.pageId, ParentId: tmp.parentId, Position: tmp.position, PageName: tmp.pageName, Action: "delete" }
+                            var returnText
+                            ajaxCall(qString, "/page/edittree", "POST").done(function (returnText) {
+                                if (returnText != "") {
+                                    $("#error-modal-body").text(returnText);
+                                    $("#error-modal-link").trigger("click");
+                                    error = true;
+                                }
+                            });
+                            if (error)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    return true; // allow everything else
+                },
+                "open_parents": true
+            },
+            "plugins": [
+            "contextmenu", "dnd", "state"
+            ],
+            "contextmenu": {
+                "items": function () {
+                    return {
+                        "Create": {
+                            "label": "Create",
+                            "action": function (data) {
+                                var ref = $.jstree.reference(data.reference);
+                                sel = ref.get_selected();
+                                if (!sel.length) { return false; }
+                                sel = sel[0];
+                                sel = ref.create_node(sel, { "type": "file" });
+                                if (sel) {
+                                    ref.edit(sel);
+                                }
+
+                            }
+                        },
+                        "Rename": {
+                            "label": "Rename",
+                            "action": function (data) {
+                                var inst = $.jstree.reference(data.reference);
+                                obj = inst.get_node(data.reference);
+                                inst.edit(obj);
+                            }
+                        },
+                        "Delete": {
+                            "label": "Delete",
+                            "action": function (data) {
+                                var ref = $.jstree.reference(data.reference),
+                                    sel = ref.get_selected();
+                                if (!sel.length) { return false; }
+                                ref.delete_node(sel);
+
+                            }
+                        },
+                        "Edit": {
+                            "label": "Edit",
+                            "action": function (data) {
+                                var ref = $.jstree.reference(data.reference),
+                                    sel = ref.get_selected();
+                                var nodInfo = $("#" + sel);
+                                var pageId = nodInfo.children("a").attr("href").replace("#", "");
+                                GetPageToEdit(pageId, sel);
+                            }
+                        }
+                    };
+                }
+            },
+            "types": {
+                "0": {
+                    "max_children": 1
+                },
+                "selected"	: true,
+                "open"		: true
+            }
+        }).on('changed.jstree', function (e, data) {
+            var i, j, r = [];
+            for (i = 0, j = data.selected.length; i < j; i++) {
+                var nodInfo = $("#" + data.selected[i]);
+                var node_name = nodInfo.children("a").text();
+                var node_id = nodInfo.children("a").attr("href");
+                var parent_id = nodInfo.parent().parent().children("a").attr("href");
+            }
+        }).on("move_node.jstree", function () {
+            var qString = { PageId: tmp.pageId, ParentId: tmp.parentId, Position: tmp.position, PageName: tmp.pageName, Action: "move" }
+            ajaxCall(qString, "/page/edittree", "POST");
+            $("#jstree").jstree().save_state();
+        }).on('create_node.jstree', function (e, data) {
+            
+        }).on('select_node.jstree', function (e, data) {
+            var i, j, r = [];
+            var pageId
+            for (i = 0, j = data.selected.length; i < j; i++) {
+                var nodInfo = $("#" + data.selected[i]);
+                pageId = nodInfo.children("a").attr("href")
+                if (pageId != null)
+                {
+                    pageId = pageId.replace("#", "");
+                }
+                
+            }
+        }).on('rename_node.jstree', function (e, data) {
+            if (tmp.pageId != "") {
+                var qString = { PageId: tmp.pageId, ParentId: tmp.parentId, Position: 0, PageName: data.node.text, Action: "rename" }
+                ajaxCall(qString, "/page/edittree", "POST");
+            }
+            else {
+                var qString = { PageId: tmp.pageId, ParentId: tmp.parentId, Position: 0, PageName: data.node.text, Action: "create" }
+                var returnText;
+                ajaxCall(qString, "/page/edittree", "POST").done(function (returnText) {
+                    if (returnText != "") {
+                        if (!isNaN(parseFloat(returnText))) {
+                            $("#" + data.node.id).children("a").attr("href", "#" + returnText);
+                            GetPageToEdit(returnText, data.node.id);
+                        }
+                        else {
+                            $("#error-modal-body").text(returnText);
+                            $("#error-modal-link").trigger("click");
+                        }
+                    }
+                });
+            }
+        }).on('copy_node.jstree', function (e, data) {
+            var qString = { PageId: tmp.pageId, ParentId: tmp.parentId, Position: tmp.position, PageName: tmp.pageName, Action: "copy" }
+            var newId = ajaxCall(qString, "/page/edittree", "POST");
+        }).on('ready.jstree', function (e, data) {
+            data.instance.open_all();
+        });
+    });
+
+    function ajaxCall(qString, url, method)
+    {
+        return $.ajax({
+            method: method,
+            url: url,
+            data: qString,
+            async: false,
+            cache :false
+        });
+    }
+
+    function GetPageToEdit(pageId, nodeId)
+    {
+        var qString = { id: pageId };
+        ajaxCall(qString, "/page/edit", "GET").done(function (returnText) {
+            if (returnText != "") {
+                $("#page-settings-modal-body").html(returnText);
+                $("#page-settings-modal-link").trigger("click");
+            }
+            else {
+                $("#error-modal-body").html(returnText);
+                $("#error-modal-link").trigger("click");
+            }
+        });
+    }
+    function fillTmp(node, parent, position) {
+        var pageId = $("#" + node.id).children("a").attr("href");
+        if (pageId != null) {
+            pageId = pageId.replace("#", "");
+        }
+        tmp.pageId = pageId
+        if (parent.id === "#") {
+            tmp.parentId = 0;
+        }
+        else {
+            tmp.parentId = $("#" + parent.id).children("a").attr("href").replace("#", "");
+        }
+        tmp.position = position;
+        tmp.pageName = $("#" + node.id).children("a").text();
+    }
+</script>

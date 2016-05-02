@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="BaukCMSContext-Web.config Connection String" description="BaukCMSContext Connection String used in web.config by the application to access the database." defaultValue="Server=201fd45d-73bc-41f5-b227-a515008704d4.sqlserver.sequelizer.com;Database=db201fd45d73bc41f5b227a515008704d4;User ID=ntpbzjbkfbaydprh;Password=LUSyecfBrzAtrUGVvne5knfWjT5vxLyMUtfu6QcDNiUD5QhBDnK3FTgxP5ptfReN;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\Private\\BaukCMS\\BaukCMS\\BaukCMS\.UI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BaukCMSContext']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,47 @@
+﻿@using GridMvc.Html
+@model IEnumerable<BaukCMS.Models.Models.Site>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        Sites
+    </header>
+    <div class="panel-body table-responsive">
+        @if (string.IsNullOrEmpty(ViewBag.Error))
+        {
+            if (Model != null)
+            {
+                @Html.Grid(Model).Columns(columns =>
+                {
+                    columns.Add(c => c.Name).SetWidth(100).Titled("Site Name");
+                    columns.Add(c => c.Domain).Titled("Domain");
+                    columns.Add().Sanitized(false).Encoded(false).SetWidth(30).RenderValueAs(o => "<a href='" + @Url.Action("Edit", "Site", new {Id = o.SiteId}) + "' class='btn btn-default btn-xs'><i class='fa fa-pencil'></i></a>");
+                    columns.Add().Sanitized(false).Encoded(false).SetWidth(30).RenderValueAs(o => "<a href='" + @Url.Action("Delete", "Site", new {Id = o.SiteId}) + "' class='btn btn-default btn-xs'><i class='fa fa-times'></i></a>");
+
+
+                }).WithPaging(10).Sortable(true)
+                ;
+            }
+            else
+            {
+                <div>The List Is Empty!</div>
+            }
+            <div class=" add-task-row">
+                @Html.ActionLink("Create New Site", "Create", null, new {@class = "btn btn-success btn-sm pull-left"})
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-block alert-danger">
+                @ViewBag.Error
+            </div>
+            <div>
+                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-danger btn-sm pull-left" })
+            </div>
+        }
+    </div>
+</section>
+

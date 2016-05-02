@@ -1,0 +1,13 @@
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\BaukCMS.BusinessLogic.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\BaukCMS.BusinessLogic.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\BaukCMS.DataLayer.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\BaukCMS.Helpers.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\BaukCMS.Models.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\EntityFramework.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\BaukCMS.DataLayer.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\BaukCMS.Helpers.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\BaukCMS.Models.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Release\EntityFramework.xml
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\obj\Release\BaukCMS.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\obj\Release\BaukCMS.BusinessLogic.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\obj\Release\BaukCMS.BusinessLogic.pdb

@@ -1,0 +1,52 @@
+﻿@using System.Web.UI.WebControls
+@using GridMvc.Html
+@model IEnumerable<BaukCMS.Models.Models.UserProfile>
+
+@{
+    ViewBag.Title = "Index Of Users";
+}
+@helper CustomRenderingOfColumn(bool active, int userId)
+{
+    var action = false;
+    if (active)
+    {
+        @:<a href="@Url.Action("Deactivate", "Account", new { UserId = userId})"><span class="label label-success">Active</span></a>
+    }
+    else
+    {
+        action = true;
+        @:<a href="@Url.Action("Activate", "Account", new { UserId = userId})"><span class="label label-danger">Inactive</span></a>
+    }
+}
+<section class="panel">
+    <header class="panel-heading">
+        Users
+    </header>
+    <div class="panel-body table-responsive">
+        @if (Model != null)
+        {
+            @Html.Grid(Model).Columns(columns =>
+        {
+            columns.Add(c => c.UserName).SetWidth(20).Titled("UserName");
+            columns.Add(c => c.FirstName).SetWidth(20).Titled("FirstName");
+            columns.Add(c => c.LastName).Titled("LastName");
+            columns.Add().Sanitized(false).Encoded(false).SetWidth(30).RenderValueAs(o => CustomRenderingOfColumn(o.Active, o.UserId)).Filterable(true);
+            columns.Add().Sanitized(false).Encoded(false).SetWidth(30).RenderValueAs(o => "<a href='" + @Url.Action("Edit", "Account", new { UserId = o.UserId }) + "' class='btn btn-default btn-xs'><i class='fa fa-pencil'></i></a>");
+            columns.Add().Sanitized(false).Encoded(false).SetWidth(30).RenderValueAs(o => "<a href='" + @Url.Action("Delete", "Account", new { UserId = o.UserId }) + "' class='btn btn-default btn-xs'><i class='fa fa-times'></i></a>");
+            
+            
+        }).WithPaging(10).Sortable(true)
+            ;
+        }
+        else
+        {
+            <div>The List Is Empty!</div>
+        }
+        <div class=" add-task-row">
+            @Html.ActionLink("Create New User", "Register", null, new { @class = "btn btn-success btn-sm pull-left" })
+        </div>
+        </div>
+</section>
+        @section Scripts {
+            @Scripts.Render("~/bundles/table")
+        }

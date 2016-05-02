@@ -1,0 +1,7 @@
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\bin\Release\BaukCMS.Helpers.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\bin\Release\BaukCMS.Helpers.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\bin\Release\BaukCMS.Models.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\bin\Release\BaukCMS.Models.pdb
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\obj\Release\BaukCMS.Helpers.csprojResolveAssemblyReference.cache
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\obj\Release\BaukCMS.Helpers.dll
+C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.Helpers\obj\Release\BaukCMS.Helpers.pdb
