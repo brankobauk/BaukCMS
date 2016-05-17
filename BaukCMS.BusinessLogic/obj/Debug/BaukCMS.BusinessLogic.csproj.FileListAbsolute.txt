@@ -26,3 +26,16 @@ C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\EntityFramew
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\obj\Debug\BaukCMS.BusinessLogic.pdb
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\System.Web.Mvc.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\System.Web.Mvc.xml
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\BaukCMS.BusinessLogic.dll
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\BaukCMS.BusinessLogic.pdb
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\BaukCMS.DataLayer.dll
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\BaukCMS.Helpers.dll
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\BaukCMS.Models.dll
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\EntityFramework.dll
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\BaukCMS.DataLayer.pdb
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\BaukCMS.Helpers.pdb
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\BaukCMS.Models.pdb
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\bin\Debug\EntityFramework.xml
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\obj\Debug\BaukCMS.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\obj\Debug\BaukCMS.BusinessLogic.dll
+C:\Projects\Private\BaukCMS\BaukCMS.BusinessLogic\obj\Debug\BaukCMS.BusinessLogic.pdb

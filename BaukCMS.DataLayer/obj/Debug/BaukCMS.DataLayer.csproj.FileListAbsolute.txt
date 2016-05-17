@@ -26,3 +26,17 @@ C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\System.Web.Mvc.dll
 C:\Projects\Private\BaukCMS\BaukCMS\BaukCMS.DataLayer\bin\Debug\System.Web.Mvc.xml
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\BaukCMS.DataLayer.dll.config
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\BaukCMS.DataLayer.dll
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\BaukCMS.DataLayer.pdb
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\BaukCMS.Models.dll
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.dll
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\BaukCMS.Models.pdb
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.xml
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\obj\Debug\BaukCMS.DataLayer.csprojResolveAssemblyReference.cache
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\obj\Debug\BaukCMS.DataLayer.Migrations.Sites.resources
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\obj\Debug\BaukCMS.DataLayer.csproj.GenerateResource.Cache
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\obj\Debug\BaukCMS.DataLayer.dll
+C:\Projects\Private\BaukCMS\BaukCMS.DataLayer\obj\Debug\BaukCMS.DataLayer.pdb
